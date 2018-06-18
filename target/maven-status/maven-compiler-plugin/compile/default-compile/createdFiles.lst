@@ -1,0 +1,4 @@
+domain/Persona.class
+servicio/PersonaService.class
+servicio/PersonaServiceImpl.class
+web/PersonasServlet.class
