@@ -1,4 +1,6 @@
 /home/nelson/dev/JavaEE/javaee-app/src/main/java/service/PersonService.java
+/home/nelson/dev/JavaEE/javaee-app/src/main/java/dao/PersonDao.java
 /home/nelson/dev/JavaEE/javaee-app/src/main/java/web/PersonsServlet.java
 /home/nelson/dev/JavaEE/javaee-app/src/main/java/model/Person.java
+/home/nelson/dev/JavaEE/javaee-app/src/main/java/dao/PersonDaoImpl.java
 /home/nelson/dev/JavaEE/javaee-app/src/main/java/service/PersonServiceImpl.java

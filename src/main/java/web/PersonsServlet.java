@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/personas")
+@WebServlet("/persons")
 public class PersonsServlet extends HttpServlet {
 
     @EJB
