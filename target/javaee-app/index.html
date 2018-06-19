@@ -9,7 +9,21 @@
     </body>
 </html>
 
-<!--create if not exists table person (-->
+<!--create table if not exists users (-->
+<!--id serial primary key,-->
+<!--id_person int null,-->
+<!--username varchar(60) not null,-->
+<!--password varchar(60) not null,-->
+
+<!--constraint fk_users_person-->
+<!--foreign key (id_person)-->
+<!--references person(id)-->
+<!--);-->
+
+<!--insert into users (id_person, username, password)-->
+<!--values (1, 'ogomez', '123');-->
+
+<!--reate table if not exists person (-->
 <!--id serial primary key,-->
 <!--person_name varchar(60) not null,-->
 <!--lastname varchar(60) not null,-->

@@ -21,9 +21,9 @@ public class PersonsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Person> personas = personServiceEjbLocal.listPersons();
-        System.out.println("persons:" + personas);
-        request.setAttribute("persons", personas);
+        List<Person> persons = personServiceEjbLocal.listPersons();
+        System.out.println("persons:" + persons);
+        request.setAttribute("persons", persons);
         request.getRequestDispatcher("/listPersons.jsp").forward(request, response);
     }
 }

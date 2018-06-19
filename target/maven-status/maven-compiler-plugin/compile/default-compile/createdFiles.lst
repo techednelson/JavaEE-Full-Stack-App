@@ -4,3 +4,4 @@ web/PersonsServlet.class
 dao/PersonDaoImpl.class
 service/PersonService.class
 service/PersonServiceImpl.class
+model/Users.class

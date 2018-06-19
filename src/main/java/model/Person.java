@@ -1,34 +1,90 @@
 package model;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.List;
 
+@Entity
+@NamedQueries({
+        @NamedQuery(name = "Person.findAll", query = "SELECT p FROM Person p")
+        , @NamedQuery(name = "Person.findById", query = "SELECT p FROM Person p WHERE p.id = :id")
+        , @NamedQuery(name = "Person.findByName", query = "SELECT p FROM Person p WHERE p.name = :person_name")
+        , @NamedQuery(name = "Person.findByLastname", query = "SELECT p FROM Person p WHERE p.lastname = :lastname")
+        , @NamedQuery(name = "Person.findByEmail", query = "SELECT p FROM Person p WHERE p.email = :email")
+        , @NamedQuery(name = "Person.findByPhone", query = "SELECT p FROM Person p WHERE p.phone = :phone")})
+@Table(name = "person")
 public class Person implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    private int idPerson;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
+    private Integer id;
+
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 60)
+    @Column(name = "person_name")
     private String name;
-    private String lastName;
+
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 60)
+    @Column(name = "lastname")
+    private String lastname;
+
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 60)
+    @Column(name = "email")
     private String email;
+
+    @Size(max = 60)
+    @Column(name = "phone")
     private String phone;
 
-    public Person() {
+    @OneToMany(mappedBy = "person")
+    private List<Users> users;
+
+    public Person() { }
+
+    public Person(Integer id) {
+        this.id = id;
     }
 
-    public Person(int idPerson, String name, String lastName, String email, String phone) {
-        super();
-        this.idPerson = idPerson;
+    public Person(String name, String lastName, String email, String phone) {
         this.name = name;
-        this.lastName = lastName;
+        this.lastname = lastName;
         this.email = email;
         this.phone = phone;
     }
 
-    public int getIdPerson() {
-        return idPerson;
+    public Person(Integer id, String name, String lastName, String email) {
+        this.id = id;
+        this.name = name;
+        this.lastname = lastName;
+        this.email = email;
     }
 
-    public void setIdPerson(int idPerson) {
-        this.idPerson = idPerson;
+    public Person(Integer id, String name, String lastname,
+                   String email, String phone) {
+        this.id = id;
+        this.name = name;
+        this.lastname = lastname;
+        this.email = email;
+        this.phone = phone;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -39,12 +95,12 @@ public class Person implements Serializable {
         this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
 
@@ -64,9 +120,36 @@ public class Person implements Serializable {
         this.phone = phone;
     }
 
+    public List<Users> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<Users> users) {
+        this.users = users;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (!(object instanceof Person)) {
+            return false;
+        }
+        Person other = (Person) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+            return false;
+        }
+        return true;
+    }
+
     @Override
     public String toString() {
-        return "Person [idPerson=" + idPerson + ", name=" + name
-                + ", lastName=" + lastName + " email=" + email + ", phone=" + phone + "]";
+        return "Person [id = " + id + ", name=" + name
+                + ", lastName=" + lastname + " email=" + email + ", phone=" + phone + "]";
     }
 }

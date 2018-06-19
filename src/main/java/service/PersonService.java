@@ -11,13 +11,13 @@ public interface PersonService {
 
     public List<Person> listPersons();
 
-    public Person encontrarPersonaPorId(Person person);
+    public Person findPersonById(Person person);
 
-    public Person encontrarPersonaPorEmail(Person person);
+    public Person findPersonByEmail(Person person);
 
-    public void registrarPersona(Person person);
+    public void registerPerson(Person person);
 
-    public void modificarPersona(Person person);
+    public void modifyPerson(Person person);
 
-    public void eliminarPersona(Person person);
+    public void deletePerson(Person person);
 }
