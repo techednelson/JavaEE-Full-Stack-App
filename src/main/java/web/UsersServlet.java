@@ -1,7 +1,7 @@
 package web;
 
-import model.Person;
-import service.PersonService;
+import model.Users;
+import service.UsersService;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -12,20 +12,19 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/persons")
-public class PersonsServlet extends HttpServlet {
+@WebServlet("/users")
+public class UsersServlet extends HttpServlet {
 
     @EJB
-    PersonService personServiceEjbLocal;
+    UsersService userServiceEjbLocal;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Person> persons = personServiceEjbLocal.listPersons();
-        System.out.println("persons:" + persons);
-        request.setAttribute("persons", persons);
-        request.getRequestDispatcher("/listPersons.jsp").forward(request, response);
+        List<Users> users = userServiceEjbLocal.listUsers();
+        System.out.println("users:" + users);
+        request.setAttribute("users", users);
+        request.getRequestDispatcher("/listUsers.jsp").forward(request, response);
     }
 }
-
 

@@ -9,15 +9,16 @@ import java.util.List;
 @Local
 public interface PersonService {
 
-    public List<Person> listPersons();
+   List<Person> listPersons();
 
-    public Person findPersonById(Person person);
+   Person findPersonById(Person person);
 
-    public Person findPersonByEmail(Person person);
+   Person findPersonByEmail(Person person);
 
-    public void registerPerson(Person person);
+   void registerPerson(Person person);
 
-    public void modifyPerson(Person person);
+   void modifyPerson(Person person);
 
-    public void deletePerson(Person person);
+   void deletePerson(Person person);
+
 }

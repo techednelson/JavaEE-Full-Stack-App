@@ -10,7 +10,7 @@
         <h1>Person's List</h1>
         <ul>
             <c:forEach items="${persons}" var="person">
-                <li>${person.name} ${person.lastName}</li>
+                <li>${person.name} ${person.lastname}</li>
             </c:forEach>
         </ul>
     </body>

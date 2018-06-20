@@ -15,7 +15,7 @@ public class PersonDaoImpl implements PersonDao {
 
     @Override
     public List<Person> findAllPersons() {
-        return em.createNamedQuery("person.findAll").getResultList();
+        return em.createNamedQuery("Person.findAll").getResultList();
     }
 
     @Override

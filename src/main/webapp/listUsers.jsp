@@ -4,13 +4,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Person's Lists</title>
+        <title>Users List</title>
     </head>
     <body>
-        <h1>Person's List</h1>
+        <h1>Users Lists</h1>
         <ul>
-            <c:forEach items="${persons}" var="person">
-                <li>${person.name} ${person.lastname}</li>
+            <c:forEach items="${users}" var="user">
+                <li>${user.username} ${user.password} ${user.person.name} ${user.person.lastname}</li>
             </c:forEach>
         </ul>
     </body>

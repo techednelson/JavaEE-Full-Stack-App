@@ -56,17 +56,17 @@ public class Person implements Serializable {
         this.id = id;
     }
 
-    public Person(String name, String lastName, String email, String phone) {
+    public Person(String name, String lastname, String email, String phone) {
         this.name = name;
-        this.lastname = lastName;
+        this.lastname = lastname;
         this.email = email;
         this.phone = phone;
     }
 
-    public Person(Integer id, String name, String lastName, String email) {
+    public Person(Integer id, String name, String lastname, String email) {
         this.id = id;
         this.name = name;
-        this.lastname = lastName;
+        this.lastname = lastname;
         this.email = email;
     }
 

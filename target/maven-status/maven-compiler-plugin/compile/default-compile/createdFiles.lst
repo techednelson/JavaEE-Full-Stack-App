@@ -1,7 +1,12 @@
 dao/PersonDao.class
-model/Person.class
-web/PersonsServlet.class
 dao/PersonDaoImpl.class
-service/PersonService.class
 service/PersonServiceImpl.class
+model/Person.class
+web/UsersServlet.class
+dao/UsersDao.class
+service/UsersService.class
+web/PersonsServlet.class
+service/PersonService.class
+service/UsersServiceImpl.class
+dao/UsersDaoImpl.class
 model/Users.class

@@ -4,6 +4,7 @@ import java.util.List;
 import model.Person;
 
 public interface PersonDao {
+
     List<Person> findAllPersons();
 
     Person findPersonById(Person person);
@@ -15,4 +16,5 @@ public interface PersonDao {
     void updatePerson(Person person);
 
     void deletePerson(Person person);
+
 }
