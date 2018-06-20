@@ -3,10 +3,12 @@ dao/PersonDaoImpl.class
 service/PersonServiceImpl.class
 model/Person.class
 web/UsersServlet.class
+beans/PersonBean.class
 dao/UsersDao.class
 service/UsersService.class
 web/PersonsServlet.class
 service/PersonService.class
 service/UsersServiceImpl.class
+beans/ConfigurationBean.class
 dao/UsersDaoImpl.class
 model/Users.class

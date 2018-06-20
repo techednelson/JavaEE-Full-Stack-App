@@ -33,7 +33,7 @@ public class Users implements Serializable {
     private String password;
 
     @JoinColumn(name = "id_person", referencedColumnName = "id")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Person person;
 
     public Users() {

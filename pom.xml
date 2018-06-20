@@ -19,6 +19,14 @@
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 
+    <repositories>
+        <repository>
+            <id>prime-repo</id>
+            <name>Prime Repo</name>
+            <url>http://repository.primefaces.org</url>
+        </repository>
+    </repositories>
+
   <dependencies>
     <dependency>
       <groupId>javax</groupId>
@@ -40,6 +48,16 @@
           <groupId>org.apache.logging.log4j</groupId>
           <artifactId>log4j-core</artifactId>
           <version>2.11.0</version>
+      </dependency>
+    <dependency>
+      <groupId>org.primefaces</groupId>
+      <artifactId>primefaces</artifactId>
+      <version>6.2</version>
+    </dependency>
+      <dependency>
+          <groupId>org.primefaces.themes</groupId>
+          <artifactId>glass-x</artifactId>
+          <version>1.0.6</version>
       </dependency>
   </dependencies>
 
