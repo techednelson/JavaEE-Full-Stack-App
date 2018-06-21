@@ -12,10 +12,8 @@ import java.util.List;
 
 @Named("personBean")
 @RequestScoped
-
-
-
 public class PersonBean {
+
     @Inject
     private PersonService personService;
 
@@ -23,8 +21,7 @@ public class PersonBean {
 
     private List<Person> persons;
 
-    public PersonBean() {
-    }
+    public PersonBean() { }
 
     @PostConstruct
     public void init() {
@@ -54,25 +51,29 @@ public class PersonBean {
         this.personSelected = personSelected;
     }
 
-    public void reiniciarPersonaSeleccionada() {
+    public void updatePersonSelected() {
         this.personSelected = new Person();
     }
 
-    public void agregarPersona() {
+    public void addPerson() {
         personService.registerPerson(this.personSelected);
         this.personSelected = null;
+        //List update
+        this.init();
     }
 
     public void deletePerson() {
         personService.deletePerson(this.personSelected);
         this.personSelected = null;
+        //List update
+        this.init();
     }
 
     public PersonService getPersonService() {
         return personService;
     }
 
-    public void setPersonaService(PersonService personService) {
+    public void setPersonService(PersonService personService) {
         this.personService = personService;
     }
 }

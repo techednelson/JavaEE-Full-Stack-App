@@ -5,12 +5,12 @@
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-    <title>Listar Personas</title>
+    <title>List Persons</title>
 </h:head>
 <h:body>
     <p:ajaxStatus style="width:16px;height:16px;" id="ajaxStatusPanel">
         <f:facet name="start">
-            <h:graphicImage library="images" name="ajaxloading.gif" />
+            <h:graphicImage name="resources/images/ajaxloading.gif" />
         </f:facet>
 
         <f:facet name="complete">
@@ -22,9 +22,17 @@
 
         <p:growl id="messages" showDetail="true" />
 
-        <p:dataTable value="#{personBean.persons}" var="person"
-                     editable="true">
+        <p:messages />
 
+        <p:dataTable id="persons"
+                     value="#{personBean.persons}"
+                     var="person"
+                     editable="true"
+                     rowKey="#{person.name}"
+                     selection="#{personBean.personSelected}"
+                     selectionMode="single">
+
+            <!--Header-->
             <f:facet name="header">
                 Person's List
             </f:facet>
@@ -59,20 +67,57 @@
                     </f:facet>
                 </p:cellEditor>
             </p:column>
-            <f:facet name="footer">
-                <h:commandButton value="Regresar" action="index" />
-            </f:facet>
-
-            <p:column headerText="Opciones" style="width:50px">
+            <p:column headerText="Edit" style="width:50px">
                 <p:rowEditor />
             </p:column>
+
+            <!--Footer-->
+            <f:facet name="footer">
+                <h:commandButton value="Back" action="index?faces-redirect=true" />
+                <p:spacer height="5px;"/>
+                <p:commandButton value="Add" actionListener="#{personBean.updatePersonSelected}" oncomplete="PF('personDialog').show();" update="persons">
+                    <p:ajax event="dialogReturn" update="persons"/>
+                </p:commandButton>
+            </f:facet>
 
             <p:ajax event="rowEdit" listener="#{personBean.editListener}">
             </p:ajax>
 
         </p:dataTable>
 
+
+        <p:contextMenu for="persons">
+            <p:menuitem value="Delete" update="persons" icon="ui-icon-close" actionListener="#{personBean.deletePerson}" ajax="false"/>
+        </p:contextMenu>
+
     </h:form>
+
+    <h:form id="dialogForm" prependId="false">
+        <p:dialog header="Add Person" widgetVar="personDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+            <p:outputPanel id="personDetail" style="text-align:center;">
+                <p:panelGrid  columns="2" columnClasses="label,value">
+                    <h:outputText value="Name" />
+                    <h:inputText value="#{personBean.personSelected.name}" />
+
+                    <h:outputText value="Lastname:" />
+                    <h:inputText value="#{personBean.personSelected.lastname}" />
+
+                    <h:outputText value="Email" />
+                    <h:inputText value="#{personBean.personSelected.email}" />
+
+                    <h:outputText value="Phone" />
+                    <h:inputText value="#{personBean.personSelected.phone}" />
+
+                    <f:facet name="footer">
+                        <h:commandButton value="Add" actionListener="#{personBean.addPerson}" />
+                    </f:facet>
+
+                </p:panelGrid>
+            </p:outputPanel>
+        </p:dialog>
+    </h:form>
+
+
 </h:body>
 
 </html>
